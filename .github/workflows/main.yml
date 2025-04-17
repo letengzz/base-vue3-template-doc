@@ -32,7 +32,7 @@ concurrency:
 
 # 任务
 jobs:
-  build-and-deploy:
+  build:
     # 服务器环境：最新版 ubuntu
     runs-on: ubuntu-latest
     strategy:
@@ -63,14 +63,15 @@ jobs:
         env:
           APP_BASE_PATH: /${{ github.repository }}
         run: pnpm install && pnpm run docs:build
-
-      # 部署
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          full_commit_message: Deploying to gh-pages from @ ${{ github.sha }} 🚀
-          # GitHub Pages 读取的分支
-          publish_branch: gh-pages
-          # 静态文件所在目录
-          publish_dir: dist
+  # 部署工作
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
