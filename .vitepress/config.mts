@@ -5,6 +5,7 @@ import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-i
 export default defineConfig({
   title: "base-vue3-template",
   description: "免费、开源、快速",
+  base:'/base-vue3-template-doc/',
   head: [
     ['link', { rel: 'icon', href: `/logo.svg` }],
   ],
