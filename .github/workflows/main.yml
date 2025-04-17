@@ -62,7 +62,7 @@ jobs:
       - name: Build
         env:
           APP_BASE_PATH: /${{ github.repository }}
-        run: pnpm install && pnpm run build
+        run: pnpm install && pnpm run docs:build
 
       # 部署
       - name: Deploy
