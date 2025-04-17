@@ -63,6 +63,10 @@ jobs:
         env:
           APP_BASE_PATH: /${{ github.repository }}
         run: pnpm install && pnpm run docs:build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .vitepress/dist
   # 部署工作
   deploy:
     environment:
