@@ -47,3 +47,6 @@ export default defineConfig({
 })
 ```
 
+忽略文件添加：
+
+![image-20250418161931406](assets/image-20250418161931406.png)
