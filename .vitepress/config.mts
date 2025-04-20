@@ -62,6 +62,7 @@ export default defineConfig({
           { text: '配置代码规范', link: '/build/Specification' },
           { text: 'gzip 压缩', link: '/build/Gzip' },
           { text: '打包拆分 & 小图片转base64', link: '/build/BuildAssetsinlinelimit' },
+          { text: '配置样式', link: '/build/Style' },
           { text: '自动引入', link: '/build/AutoImport' },
           { text: '配置环境变量', link: '/build/Env' },
           { text: '抽离组件', link: '/build/Extractions' },
